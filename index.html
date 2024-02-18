@@ -201,7 +201,8 @@
              Large Multimodal Models (LMMs) excel in natural language and visual understanding but are challenged by exacting tasks such as Knowledge-based Visual Question Answering (KB-VQA) which involve the retrieval of relevant information from document collections to use in shaping answers to questions. 
              We present an extensive training and evaluation framework, M2KR, for KB-VQA. 
              M2KR contains a collection of vision and language tasks which we have incorporated into a single suite of benchmark tasks for training and evaluating general-purpose multi-modal retrievers. 
-             We use M2KR to develop PreFLMR, a pre-trained version of the recently developed Fine-grained Late-interaction Multi-modal Retriever (FLMR) approach to KB-VQA, and we report new state-of-the-art results across a range of tasks. 
+             We use M2KR to develop PreFLMR, a pre-trained version of the recently developed Fine-grained Late-interaction Multi-modal Retriever (<a
+             href="https://arxiv.org/abs/2309.17133" target="_blank">FLMR</a>) approach to KB-VQA, and we report new state-of-the-art results across a range of tasks. 
              We also present investigations into the scaling behaviors of PreFLMR intended to be useful in future developments in general-purpose multi-modal retrievers.
             </p>
           </div>
@@ -232,6 +233,81 @@
       </div>
     </div>
   </section>
+
+
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns">
+        <div class="column is-three-fourths">
+          <h2 class="title is-3 has-text-centered">Retrieval Performance</h2>
+          <div class="content">
+          <p>
+            We show PreFLMR's performance when incorporating vision encoders with different scales with base sized text encoder. All variants of PreFLMR shows competitive performance on all nine benchmark retrieval tasks in the M2KR.
+          </p>
+          <img src="static/images/radar_plot.jpg" alt="Retrieval Performance" />
+        </div>
+        <div class="item">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns">
+        <div class="column is-five-sixths">
+          <h2 class="title is-3 has-text-centered">KB-VQA Performance</h2>
+          <div class="content">
+          <p> We show downstream KB-VQA performance when <a
+            href="https://github.com/linweizhedragon/retrieval-augmented-visual-question-answering" target="_blank">RA-VQAv2</a> is equipped with PreFLMR and finetuned on the target VQA task. PaLM-E, PALI-X, and PaLM-B are large multi-modal models with 562B, 55B, and 1T parameters, respectively. The E-VQA SOTA uses Lens, the Google API for image retrieval. After incorporating PreFLMR, RA-VQAV2 achieves competitive performance while using much smaller language model.</p>
+            <table>
+              
+              <thead>
+                  <tr>
+                      <th>Model</th>
+                      <th>OKVQA</th>
+                      <th>Infoseek</th>
+                      <th>E-VQA</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>SOTA</td>
+                      <td>66.10</td>
+                      <td>21.80</td>
+                      <td>48.80</td>
+                  </tr>
+                  <tr>
+                      <td style="padding-left: 20px;"><i>SOTA model</i></td>
+                      <td>PaLM-E</td>
+                      <td>PALI-X</td>
+                      <td>PaLM-B + Lens</td>
+                  </tr>
+                  <tr>
+                      <td>RA-VQAv2 w/ PreFLMR</td>
+                      <td>61.88</td>
+                      <td>30.65</td>
+                      <td>54.45</td>
+                  </tr>
+                  <tr>
+                      <td style="padding-left: 20px;"><i>w/o retrieval</i></td>
+                      <td>55.44</td>
+                      <td>21.78</td>
+                      <td>19.80</td>
+                  </tr>
+              </tbody>
+          </table>
+          
+          
+
+        </div>
+        <div class="item">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
 
   <!-- Image carousel 
   <section class="hero is-small">
