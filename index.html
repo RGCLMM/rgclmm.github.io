@@ -217,16 +217,15 @@
           <h2 class="title is-3 has-text-centered">Model</h2>
           <div class="content">
             <p>
-              (1) the text query consists of an instruction and a question, which is encoded by a text encoder;
-              (2) at the output of the vision encoder, a mapping network consisting of Multi-Layer Perceptrons (MLP)
-              converts the `[CLS]' token representations into the same embedding space as the text encoder;
-              (3) the transformer blocks take in the patch image embeddings from the penultimate layer of the vision
-              encoder and attend to the text features by cross-attention;
-              (4) a text encoder encodes documents in the knowledge base;
-              (5) the scores between queries and documents are computed based on late-interaction, allowing each query
-              token to interact with all document token embeddings.
+              1. Using VL Encoder F to extract the joint vision-language representation for a
+              training example i. Additionally, the VL Encoder encodes the training memes into a retrieval database
+              G. 2. During training, pseudo-gold and hard negative examples are obtained using the
+              Faiss nearest neighbour search. During inference, K nearest neighbours are obtained using the same
+              querying process to perform the KNN-based inference. 3. During training, we optimise the joint
+              loss function L. 4. For inference, we use conventional logistic classifier and our
+              proposed retrieval-based KNN majority voting.
             </p>
-            <img src="static/images/Architecture.jpg" alt="RGCL Architecture" />
+            <img src="static/images/RGCL_Model.png" alt="RGCL Architecture" />
           </div>
           <div class="item">
 
@@ -236,76 +235,39 @@
   </section>
 
 
-  <section class="section hero">
-    <div class="container is-max-desktop">
-      <div class="columns">
-        <div class="column is-three-fourths">
-          <h2 class="title is-3 has-text-centered">Retrieval Performance</h2>
-          <div class="content">
-            <p>
-              We show RGCL's performance when incorporating vision encoders with different scales with base sized
-              text encoder. All variants of RGCL shows competitive performance on all nine benchmark retrieval tasks
-              in the M2KR.
-            </p>
-            <img src="static/images/radar_plot.jpg" alt="Retrieval Performance" />
-          </div>
-          <div class="item">
-            <p>
-              For the evaluation metrics, WIT uses Recall@10, IGLUE uses Recall@1, all the rest datasets use Recall@5.
-              The scale of the plot is adjusted for better visualization. The best and worst numbers of each task are
-              annotated.
-            </p>
-          </div>
-        </div>
-      </div>
-  </section>
+  
 
   <section class="section hero">
     <div class="container is-max-desktop">
       <div class="columns">
         <div class="column is-five-sixths">
-          <h2 class="title is-3 has-text-centered">KB-VQA Performance</h2>
+          <h2 class="title is-3 has-text-centered">Performance on Hateful Meme Detection </h2>
           <div class="content">
-            <p> We show downstream KB-VQA performance when <a
-                href="https://github.com/linweizhedragon/retrieval-augmented-visual-question-answering"
-                target="_blank">RA-VQAv2</a> is equipped with RGCL and finetuned on the target VQA task. PaLM-E,
-              PALI-X, and PaLM-B are large multi-modal models with 562B, 55B, and 1T parameters, respectively. The E-VQA
-              SOTA uses Lens, the Google API for image retrieval. After incorporating RGCL, RA-VQAV2 achieves
-              competitive performance while using much smaller language model.</p>
+            <p> We show performance of RGCL on hateful meme detection task on HatefulMemes and HarMeme datasets. </p> The accuracy score is reported.
             <table>
 
               <thead>
                 <tr>
                   <th>Model</th>
-                  <th>OKVQA</th>
-                  <th>Infoseek</th>
-                  <th>E-VQA</th>
+                  <th>HatefulMemes</th>
+                  <th>HarMeme</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>SOTA</td>
-                  <td>66.10</td>
-                  <td>21.80</td>
-                  <td>48.80</td>
+                  <td>86.60</td>
+                  <td>90.80</td>
                 </tr>
                 <tr>
                   <td style="padding-left: 20px;"><i>SOTA model</i></td>
-                  <td>PaLM-E</td>
-                  <td>PALI-X</td>
-                  <td>PaLM-B + Lens</td>
+                  <td>Flamingo</td>
+                  <td>LLaVA-13B</td>
                 </tr>
                 <tr>
-                  <td>RA-VQAv2 w/ RGCL</td>
-                  <td>61.88</td>
-                  <td>30.65</td>
-                  <td>54.45</td>
-                </tr>
-                <tr>
-                  <td style="padding-left: 20px;"><i>w/o retrieval</i></td>
-                  <td>55.44</td>
-                  <td>21.78</td>
-                  <td>19.80</td>
+                  <td>RGCL</td>
+                  <td>87.0</td>
+                  <td>91.8</td>
                 </tr>
               </tbody>
             </table>
@@ -320,251 +282,6 @@
   </section>
 
 
-
-  <!-- Image carousel 
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
-
-            <img src="static/images/carousel1.jpg" alt="MY ALT TEXT" />
-            <h2 class="subtitle has-text-centered">
-              First image description.
-            </h2>
-          </div>
-          <div class="item">
-
-            <img src="static/images/carousel2.jpg" alt="MY ALT TEXT" />
-            <h2 class="subtitle has-text-centered">
-              Second image description.
-            </h2>
-          </div>
-          <div class="item">
-
-            <img src="static/images/carousel3.jpg" alt="MY ALT TEXT" />
-            <h2 class="subtitle has-text-centered">
-              Third image description.
-            </h2>
-          </div>
-          <div class="item">
-
-            <img src="static/images/carousel4.jpg" alt="MY ALT TEXT" />
-            <h2 class="subtitle has-text-centered">
-              Fourth image description.
-            </h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>-->
-  <!-- End image carousel -->
-
-
-
-
-  <!-- Youtube video 
-  <section class="hero is-small is-light">
-    <div class="hero-body">
-      <div class="container">
-
-        <h2 class="title is-3">Video Presentation</h2>
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-
-            <div class="publication-video">
-
-              <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media"
-                allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>-->
-  <!-- End youtube video -->
-
-
-  <!-- Video carousel 
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title is-3">Another Carousel</h2>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-video1">
-            <video poster="" id="video1" autoplay controls muted loop height="100%">
-
-              <source src="static/videos/carousel1.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-video2">
-            <video poster="" id="video2" autoplay controls muted loop height="100%">
-
-              <source src="static/videos/carousel2.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="item item-video3">
-            <video poster="" id="video3" autoplay controls muted loop height="100%">\
-
-              <source src="static/videos/carousel3.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>-->
-  <!-- End video carousel -->
-
-
-
-
-
-
-  <!-- Paper poster
-  <section class="hero is-small is-light">
-    <div class="hero-body">
-      <div class="container">
-        <h2 class="title">Poster</h2>
-
-        <iframe src="static/pdfs/sample.pdf" width="100%" height="550">
-        </iframe>
-
-      </div>
-    </div>
-  </section> -->
-  <!--End paper poster -->
-
-  <section class="section">
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-five-sixths">
-        <h2 class="title is-3"> Examples with RGCL as Knowledge Retriever</h2>
-
-
-      </div>
-
-    </div>
-    <div class="container is-max-desktop">
-      <div class="columns is-centered is-five-sixths">
-        <div class="column">
-          <p> We demonstrate three types of usage of RGCL Knowledge Retriever: Image + Instruction + Question to
-            retrieve Documents; Image + Instruction to retrieve Documents; Instruction + Question to retrieve Documents.
-          </p>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-five-sixths">
-        <h2 class="title is-5">Image + Instruction + Question -> Documents</a></h2>
-      </div>
-    </div>
-    <!-- Convesation 1 -->
-    <div class="container mt-5 is-max-desktop">
-      <!-- Selection -->
-      <div class="form-row" style="justify-content: flex-end;">
-        <div class="form-group col-md-1">
-          <div class="col-md-2" style="width: 100%"><label>&nbsp;</label></div>
-          <div class="btn-group" role="group" aria-label="Left and Right Controller"
-            style="width: 100%;align-items: flex-end;justify-content: right;flex-direction: row;display: flex;">
-            <button type="button" class="form-control btn btn-primary" id="prev-itt"><i
-                class="material-icons">keyboard_arrow_left</i></button>
-            <button type="button" class="form-control btn btn-primary" id="next-itt"><i
-                class="material-icons">keyboard_arrow_right</i></button>
-
-          </div>
-        </div>
-      </div>
-      <!-- Question Card -->
-      <div style="display: flex; justify-content: center; align-items: center;">
-        <div class="card mb-4" style="width: 100%; display: flex; align-items: center;">
-          <!-- <p><b>Description:</b> Monalisa is a famous painting by Leonardo da Vinci. </p> -->
-
-          <div class="modal-card-body" id="selected-question" style="display: flex; height: 80vh;">
-            <div id="chat-history-itt" class="chat-history"></div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <section class="section">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-five-sixths">
-        <h2 class="title is-5">Image + Instruction -> Documents</a></h2>
-      </div>
-    </div>
-    <!-- Convesation 2 -->
-    <div class="container mt-5 is-max-desktop">
-      <!-- Selection -->
-      <div class="form-row" style="justify-content: flex-end;">
-        <div class="form-group col-md-1">
-          <div class="col-md-2" style="width: 100%"><label>&nbsp;</label></div>
-          <div class="btn-group" role="group" aria-label="Left and Right Controller"
-            style="width: 100%;align-items: flex-end;justify-content: right;flex-direction: row;display: flex;">
-            <button type="button" class="form-control btn btn-primary" id="prev-it"><i
-                class="material-icons">keyboard_arrow_left</i></button>
-            <button type="button" class="form-control btn btn-primary" id="next-it"><i
-                class="material-icons">keyboard_arrow_right</i></button>
-
-          </div>
-        </div>
-      </div>
-      <!-- Question Card -->
-      <div style="display: flex; justify-content: center; align-items: center;">
-        <div class="card mb-4" style="width: 100%; display: flex; align-items: center;">
-          <!-- <p><b>Description:</b> Monalisa is a famous painting by Leonardo da Vinci. </p> -->
-
-          <div class="modal-card-body" id="selected-question" style=" height: 80vh;">
-
-            <div id="chat-history-it" class="chat-history"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-five-sixths">
-        <h2 class="title is-5">Instruction + Question -> Documents</a></h2>
-      </div>
-    </div>
-    <!-- Convesation 3 -->
-
-
-    <div class="container mt-5 is-max-desktop">
-      <!-- Selection -->
-      <div class="form-row" style="justify-content: flex-end;">
-        <div class="form-group col-md-1">
-          <div class="col-md-2" style="width: 100%"><label>&nbsp;</label></div>
-          <div class="btn-group" role="group" aria-label="Left and Right Controller"
-            style="width: 100%;align-items: flex-end;justify-content: right;flex-direction: row;display: flex;">
-            <button type="button" class="form-control btn btn-primary" id="prev-tt"><i
-                class="material-icons">keyboard_arrow_left</i></button>
-            <button type="button" class="form-control btn btn-primary" id="next-tt"><i
-                class="material-icons">keyboard_arrow_right</i></button>
-
-          </div>
-        </div>
-      </div>
-      <!-- Question Card -->
-      <div style="display: flex; justify-content: center; align-items: center;">
-        <div class="card mb-4 content" style="width: 100%; display: flex; align-items: center;">
-          <!-- <p><b>Description:</b> Monalisa is a famous painting by Leonardo da Vinci. </p> -->
-
-          <div class="modal-card-body" id="selected-question" style="display: flex; height: 40vh;">
-
-            <div id="chat-history-tt" class="chat-history"></div>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
 
   <!--BibTex citation -->
   <section class="section" id="BibTeX">
@@ -591,7 +308,6 @@
           pages = "5333--5347",
           abstract = "Hateful memes have emerged as a significant concern on the Internet. Detecting hateful memes requires the system to jointly understand the visual and textual modalities. Our investigation reveals that the embedding space of existing CLIP-based systems lacks sensitivity to subtle differences in memes that are vital for correct hatefulness classification. We propose constructing a hatefulness-aware embedding space through retrieval-guided contrastive training. Our approach achieves state-of-the-art performance on the HatefulMemes dataset with an AUROC of 87.0, outperforming much larger fine-tuned large multimodal models. We demonstrate a retrieval-based hateful memes detection system, which is capable of identifying hatefulness based on data unseen in training. This allows developers to update the hateful memes detection system by simply adding new examples without retraining {---} a desirable feature for real services in the constantly evolving landscape of hateful memes on the Internet.",
       }
-      }
 
       </code></pre>
     </div>
@@ -607,212 +323,6 @@
           Template</a> </p>
     </div>
   </section>
-
-
-  <script>
-    // Handle message showing
-    function createChatRow(sender, text, imageSrc) {
-      var article = document.createElement("article");
-      article.className = "media"
-
-      var figure = document.createElement("figure");
-      figure.className = "media-left";
-
-      var span = document.createElement("span");
-      span.className = "icon is-large";
-
-      var icon = document.createElement("i");
-      icon.className = "fas fas fa-2x" + (sender === "User" ? " fa-user " : sender === "RGCL" ? " fa-robot" : "");
-
-      var media = document.createElement("div");
-      media.className = "media-content";
-
-      var content = document.createElement("div");
-      content.className = "content";
-
-      var para = document.createElement("p");
-
-      // wrap text in pre tag to preserve whitespace and line breaks
-      var pre_text = document.createElement("pre");
-      pre_text.style =
-        "background-color: white; font-size: 18px; font-family: Arial; padding: 0; margin: 0; white-space: pre-wrap; word-wrap: break-word;";
-      var paraText = document.createTextNode(text);
-      pre_text.appendChild(paraText);
-
-      var strong = document.createElement("strong");
-      strong.innerHTML = sender;
-      var br = document.createElement("br");
-
-      para.appendChild(strong);
-      para.appendChild(br);
-      para.appendChild(pre_text);
-
-      // Add image if imageSrc is provided
-      if (imageSrc) {
-        var img = document.createElement("img");
-        img.src = imageSrc;
-        img.style = "max-width: 100%; max-height: 300px;"; // Adjust the style as needed
-        para.appendChild(img);
-      }
-
-      content.appendChild(para);
-      media.appendChild(content);
-      span.appendChild(icon);
-      figure.appendChild(span);
-      if (sender !== "Description") {
-        article.appendChild(figure);
-      };
-      article.appendChild(media);
-      return article;
-    }
-
-    // Adjusted to accept chatHistoryId parameter
-    function addMessageToChatHistory(chatHistoryId, sender, message, imageSrc) {
-      const chatHistory = document.querySelector('#' + chatHistoryId);
-      const chatRow = createChatRow(sender, message, imageSrc);
-      chatHistory.appendChild(chatRow);
-      chatHistory.scrollTop = chatHistory.scrollHeight;
-    }
-
-    // 
-    const conversations_itt = [{
-      "description": "Architecture",
-      "turns": [
-        // ["Description", "Please read the description and answer the question."],
-        ["User",
-          "Using the provided image, obtain documents that address the subsequent question: What is the capital of the country shown in the image?",
-          "./static/images/Demo_1_1.jpg"
-        ],
-        ["RGCL",
-          "In the final phases of the Chinese Civil War, the People's Liberation Army seized control of the city peacefully on 31 January 1949 in the course of the Pingjin Campaign. On 1 October that year, Mao Zedong announced the creation of the People's Republic of China from atop Tian'anmen. He restored the name of the city, as the new capital, to Beijing, a decision that had been reached by the Chinese People's Political Consultative Conference just a few days earlier." +
-          "In the 1950s, the city began to expand beyond the old walled city and its surrounding neighborhoods, with heavy industries in the west and residential neighborhoods in the north. Many areas of the Beijing city wall were torn down in the 1960s to make way for the construction of the Beijing Subway and the 2nd Ring Road." +
-          "During the Cultural Revolution from 1966 to 1976, the Red Guard movement began in Beijing and the city's government fell victim to one of the first purges. By the autumn of 1966, all city schools were shut down and over a million Red Guards from across the country gathered in Beijing for eight rallies in Tian'anmen Square with Mao. In April 1976, a large public gathering of Beijing residents against the Gang of Four and the Cultural Revolution in Tiananmen Square was forcefully suppressed. In October 1976, the Gang was arrested in Zhongnanhai and the Cultural Revolution came to an end. In December 1978, the Third Plenum of the 11th Party Congress in Beijing under the leadership of Deng Xiaoping reversed the verdicts against victims of the Cultural Revolution and instituted the policy of reform and opening up." +
-          "Since the early 1980s, the urban area of Beijing has expanded greatly with the completion of the 2nd Ring Road in 1981 and the subsequent addition of the 3rd, 4th, 5th and 6th Ring Roads. According to one 2005 newspaper report, the size of newly developed Beijing was one-and-a-half times larger than before. Wangfujing and Xidan have developed into flourishing shopping districts, while Zhongguancun has become a major center of electronics in China. In recent years, the expansion of Beijing has also brought to the forefront some problems of urbanization, such as heavy traffic, poor air quality, the loss of historic neighborhoods, and a significant influx of migrant workers from less-developed rural areas of the country. Beijing has also been the location of many significant events in recent Chinese history, principally the Tiananmen Square protests of 1989. The city has also hosted major international events, including the 2008 Summer Olympics and the 2015 World Championships in Athletics, and was chosen to host the 2022 Winter Olympics, making it the first city to ever host both Winter and Summer Olympics."
-        ]
-      ]
-    },
-    {
-      "description": "Natural",
-      "turns": [
-        ["User",
-          "Using the provided image, obtain documents that address the subsequent question: What is the creature in this image?",
-          "./static/images/Demo_1_2.jpg"
-        ],
-        ["RGCL",
-          "The Ecuadorian hermit crab (Coenobita compressus) also known as the Pacific hermit crab is a species of land hermit crab. It is one of the two land hermit crabs commonly sold in North America as pets, the other being the Caribbean hermit crab (C. clypeatus).​"
-        ]
-      ]
-    },
-    ];
-
-    const conversations_it = [{
-      "description": "Map",
-      "turns": [
-        // ["Description", "Please read the description and answer the question."],
-        ["User", "Identify the document that is connected to this image.:", "./static/images/Demo_2_1.jpg"],
-        ["RGCL",
-          "title: Peron Peninsula hierarchical section title: Peron Peninsula caption reference description: Satellite image of Shark Bay caption attribution description: Phytoplankton in Bloom. NASA’s Terra satellite captured this image of phytoplankton in bloom in Australia’s Shark Bay on November 6, 2004. content: Peron Peninsula is a long narrow peninsula located in the Shark Bay World Heritage site in Western Australia, at about 25°51' S longitude and 113°30' E latitude. It is some 130 kilometres long, running north-northwesterly, located east of Henri Freycinet Harbour and west of Havre Hamelin and Faure Island. It is the largest of the Shark Bay peninsulas. Significant settlements include Denham and Monkey Mia. An airport is located there. It is the location of former Pastoral leases Peron and Nanga stations. It is the main location of land access to points within the World Heritage site. The northern area contains the Francois Peron National Park. It is surrounded by the Shark Bay Marine Park and its lower southeast part is adjacent to the Hamelin Pool Marine Nature Reserve. The Taillefer Isthmus, the narrowest section of the peninsula, is between Nanga and Goulet Bluff - which has Shell Beach located on the eastern side which lies in the L'Haridon Bight. The northernmost point is Cape Peron which has a namesake further south in the metropolitan Perth coastal area. "
-        ]
-      ]
-    },
-    {
-      "description": "Building",
-      "turns": [
-        ["User", "Identify the document that is connected to this image.:", "./static/images/Demo_2_2.jpg"],
-        ["RGCL",
-          "title: Midtown Tower hierarchical section title: Midtown Tower caption reference description: Midtown Tower with Gardenside in the foreground caption attribution description: 日本語: 東京ミッドタウンタワー、東京都港区赤坂9丁目。 content: Midtown Tower is a mixed-use skyscraper in Akasaka, Minato, Tokyo. Completed in 2007, it is the tallest of the six buildings within the Tokyo Midtown complex, at 248.1 meters, and was the tallest office building in Tokyo until 2014.​"
-        ]
-      ]
-    },
-    ];
-
-    const conversations_tt = [{
-      "description": "petechial",
-      "turns": [
-        // ["Description", "Please read the description and answer the question."],
-        ["User", "Retrieve the document that answers this question.: causes of petechial hemorrhage"],
-        ["RGCL",
-          "Causes and Symptoms. The causes of petechial hemorrhages are injury to the brain and trauma. This type of multiple petechial hemorrhage is not often visible in imaging techniques such as CT and MRI scans. It is visible in case the injury is very severe, and it generally shows up only after few days. "
-        ]
-      ]
-    },
-    {
-      "description": "transformative",
-      "turns": [
-        ["User", "Retrieve the document that answers this question.: theory of transformational learning definition"],
-        ["RGCL",
-          "Transformative learning. Transformative learning theory says that the process of perspective transformation has three dimensions: psychological (changes in understanding of the self), convictional (revision of belief systems), and behavioral (changes in lifestyle).​"
-        ]
-      ]
-    },
-    ];
-
-
-    // Adjusted to accept chatHistoryId parameter
-    function clearChatHistory(chatHistoryId) {
-      const chatHistory = document.querySelector('#' + chatHistoryId);
-      chatHistory.innerHTML = "";
-    }
-
-    // This is a generalized version of the update function for any conversation set and chat history
-    function updateDialogDemo(chatHistoryId, conversations, currentIndex) {
-      // Clears the chat history for a specific chat history container
-      clearChatHistory(chatHistoryId);
-
-      // Get specific conversations and update the chat history
-      const conversation = conversations[currentIndex];
-      for (let i = 0; i < conversation.turns.length; i++) {
-        if (conversation.turns[i].length == 2) {
-          addMessageToChatHistory(chatHistoryId, conversation.turns[i][0], conversation.turns[i][1]);
-        } else {
-          addMessageToChatHistory(chatHistoryId, conversation.turns[i][0], conversation.turns[i][1], conversation.turns[
-            i][2]);
-        }
-      }
-    }
-    // Assuming currentIndexes for each conversation set
-    let currentIndexITT = 0;
-    let currentIndexIT = 0;
-    let currentIndexTT = 0;
-
-    // Initialize each chat history with its first conversation
-    updateDialogDemo('chat-history-itt', conversations_itt, currentIndexITT);
-    updateDialogDemo('chat-history-it', conversations_it, currentIndexIT);
-    updateDialogDemo('chat-history-tt', conversations_tt, currentIndexTT);
-
-    document.getElementById('prev-itt').addEventListener('click', () => {
-      currentIndexITT = (currentIndexITT - 1 + conversations_itt.length) % conversations_itt.length;
-      updateDialogDemo('chat-history-itt', conversations_itt, currentIndexITT);
-    });
-
-
-    // Example event listeners for navigating conversations in the ITT set
-    document.getElementById('next-itt').addEventListener('click', () => {
-      currentIndexITT = (currentIndexITT + 1) % conversations_itt.length;
-      updateDialogDemo('chat-history-itt', conversations_itt, currentIndexITT);
-    });
-    // Event listeners for IT conversation navigation
-    document.getElementById('prev-it').addEventListener('click', () => {
-      currentIndexIT = (currentIndexIT - 1 + conversations_it.length) % conversations_it.length;
-      updateDialogDemo('chat-history-it', conversations_it, currentIndexIT);
-    });
-
-    document.getElementById('next-it').addEventListener('click', () => {
-      currentIndexIT = (currentIndexIT + 1) % conversations_it.length;
-      updateDialogDemo('chat-history-it', conversations_it, currentIndexIT);
-    });
-
-    // Event listeners for TT conversation navigation
-    document.getElementById('prev-tt').addEventListener('click', () => {
-      currentIndexTT = (currentIndexTT - 1 + conversations_tt.length) % conversations_tt.length;
-      updateDialogDemo('chat-history-tt', conversations_tt, currentIndexTT);
-    });
-
-    document.getElementById('next-tt').addEventListener('click', () => {
-      currentIndexTT = (currentIndexTT + 1) % conversations_tt.length;
-      updateDialogDemo('chat-history-tt', conversations_tt, currentIndexTT);
-    });
-  </script>
 
 
 
