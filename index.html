@@ -5,28 +5,28 @@
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="` - General Purpose Multimodal Knowledge Retriever">
-  <meta property="og:title" content="PreFLMR" />
-  <meta property="og:description" content="PreFLMR - General Purpose Multimodal Knowledge Retriever" />
-  <meta property="og:url" content="https://jingbiaomei.github.io/PreFLMR_Page/" />
+  <meta name="description" content="` - Improving Hateful Meme Detection through Retrieval-Guided Contrastive Learning">
+  <meta property="og:title" content="RGCL" />
+  <meta property="og:description" content="RGCL - Improving Hateful Meme Detection through Retrieval-Guided Contrastive Learning" />
+  <meta property="og:url" content="https://jingbiaomei.github.io/RGCL_Page/" />
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
   <meta property="og:image" content="static/image/your_banner_image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
 
-  <meta name="twitter:title" content="PreFLMR">
-  <meta name="twitter:description" content="PreFLMR - General Purpose Multimodal Knowledge Retriever">
+  <meta name="twitter:title" content="RGCL">
+  <meta name="twitter:description" content="RGCL - Improving Hateful Meme Detection through Retrieval-Guided Contrastive Learning">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
   <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords"
-    content="PreFLMR, Multimodal, Retriever, Multimodal Retriever, Knowledge Retriever, M2KR, KBVQA, LMM, LLM">
+    content="RGCL, Multimodal, Retriever, Multimodal Retriever, KBVQA, LMM, LLM, MLLM">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>PreFLMR: Scaling Up Fine-Grained Late-Interaction Multi-modal Retrievers</title>
+  <title>RGCL: Improving Hateful Meme Detection through Retrieval-Guided Contrastive Learning</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -45,13 +45,13 @@
   <script src="static/js/index.js"></script>
   <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.16.0/gradio.js"></script>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1WTVVMF6GQ"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2PX3HRBN3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-1WTVVMF6GQ');
+    gtag('config', 'G-S2PX3HRBN3');
   </script>
 
 </head>
@@ -64,28 +64,30 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">PreFLMR</h1>
-            <h1 class="subtitle is-2 publication-subtitle">Scaling Up Fine-Grained Late-Interaction Multi-modal
-              Retrievers</h1>
+            <h1 class="title is-1 publication-title">RGCL</h1>
+            <h1 class="subtitle is-2 publication-subtitle">Improving Hateful Meme Detection through Retrieval-Guided Contrastive Learning</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
+              
               <span class="author-block">
-                <a href="https://linweizhedragon.github.io/" target="_blank">Weizhe Lin</a><sup>*</sup>,</span>
+                <a href="https://jingbiao.me/" target="_blank">Jingbiao Mei</a>,</span>
               <span class="author-block">
-                <a href="https://jingbiao.me/" target="_blank">Jingbiao Mei</a><sup>*</sup>,</span>
-              <span class="author-block">
-                <a href="https://www.jinghong-chen.net/" target="_blank">Jinghong Chen</a><sup>*</sup>,</span>
+                <a href="https://www.jinghong-chen.net/" target="_blank">Jinghong Chen</a>,</span>
               </span>
+              <span class="author-block">
+                <a href="https://linweizhedragon.github.io/" target="_blank">Weizhe Lin</a>,</span>
               <span class="author-block">
                 <a href="https://sites.google.com/view/bill-byrne/home" target="_blank">Bill
                   Byrne</a><sup></sup></span>
+              <span class="author-block">
+                <a href="https://www.english.cam.ac.uk/people/Marcus.Tomalin" target="_blank">Marcus Tomalin</a></span>
               </span>
 
             </div>
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">University of Cambridge<br></span>
-              <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+              
             </div>
 
             <div class="column has-text-centered">
@@ -138,7 +140,7 @@
 
                 <!-- HF link Model -->
                 <span class="link-block">
-                  <a href="https://huggingface.co/LinWeizheDragon/PreFLMR_ViT-G" target="_blank"
+                  <a href="https://huggingface.co/LinWeizheDragon/RGCL_ViT-G" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       🤗
@@ -169,7 +171,7 @@
 
                 <!-- HF link Dataset-->
                 <span class="link-block">
-                  <a href="https://www.jinghong-chen.net/preflmr-sota-open-sourced-multi/?ref=Project_page" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://www.jinghong-chen.net/RGCL-sota-open-sourced-multi/?ref=Project_page" target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <span class="fa fa-blog"></span>
                     </span>
@@ -235,11 +237,11 @@
               We present an extensive training and evaluation framework, M2KR, for KB-VQA.
               M2KR contains a collection of vision and language tasks which we have incorporated into a single suite of
               benchmark tasks for training and evaluating general-purpose multi-modal retrievers.
-              We use M2KR to develop PreFLMR, a pre-trained version of the recently developed Fine-grained
+              We use M2KR to develop RGCL, a pre-trained version of the recently developed Fine-grained
               Late-interaction Multi-modal Retriever (<a href="https://arxiv.org/abs/2309.17133"
                 target="_blank">FLMR</a>) approach to KB-VQA, and we report new state-of-the-art results across a range
               of tasks.
-              We also present investigations into the scaling behaviors of PreFLMR intended to be useful in future
+              We also present investigations into the scaling behaviors of RGCL intended to be useful in future
               developments in general-purpose multi-modal retrievers.
             </p>
           </div>
@@ -265,7 +267,7 @@
               (5) the scores between queries and documents are computed based on late-interaction, allowing each query
               token to interact with all document token embeddings.
             </p>
-            <img src="static/images/Architecture.jpg" alt="PreFLMR Architecture" />
+            <img src="static/images/Architecture.jpg" alt="RGCL Architecture" />
           </div>
           <div class="item">
 
@@ -282,8 +284,8 @@
           <h2 class="title is-3 has-text-centered">Retrieval Performance</h2>
           <div class="content">
             <p>
-              We show PreFLMR's performance when incorporating vision encoders with different scales with base sized
-              text encoder. All variants of PreFLMR shows competitive performance on all nine benchmark retrieval tasks
+              We show RGCL's performance when incorporating vision encoders with different scales with base sized
+              text encoder. All variants of RGCL shows competitive performance on all nine benchmark retrieval tasks
               in the M2KR.
             </p>
             <img src="static/images/radar_plot.jpg" alt="Retrieval Performance" />
@@ -307,9 +309,9 @@
           <div class="content">
             <p> We show downstream KB-VQA performance when <a
                 href="https://github.com/linweizhedragon/retrieval-augmented-visual-question-answering"
-                target="_blank">RA-VQAv2</a> is equipped with PreFLMR and finetuned on the target VQA task. PaLM-E,
+                target="_blank">RA-VQAv2</a> is equipped with RGCL and finetuned on the target VQA task. PaLM-E,
               PALI-X, and PaLM-B are large multi-modal models with 562B, 55B, and 1T parameters, respectively. The E-VQA
-              SOTA uses Lens, the Google API for image retrieval. After incorporating PreFLMR, RA-VQAV2 achieves
+              SOTA uses Lens, the Google API for image retrieval. After incorporating RGCL, RA-VQAV2 achieves
               competitive performance while using much smaller language model.</p>
             <table>
 
@@ -335,7 +337,7 @@
                   <td>PaLM-B + Lens</td>
                 </tr>
                 <tr>
-                  <td>RA-VQAv2 w/ PreFLMR</td>
+                  <td>RA-VQAv2 w/ RGCL</td>
                   <td>61.88</td>
                   <td>30.65</td>
                   <td>54.45</td>
@@ -477,7 +479,7 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-sixths">
-        <h2 class="title is-3"> Examples with PreFLMR as Knowledge Retriever</h2>
+        <h2 class="title is-3"> Examples with RGCL as Knowledge Retriever</h2>
 
 
       </div>
@@ -486,7 +488,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered is-five-sixths">
         <div class="column">
-          <p> We demonstrate three types of usage of PreFLMR Knowledge Retriever: Image + Instruction + Question to
+          <p> We demonstrate three types of usage of RGCL Knowledge Retriever: Image + Instruction + Question to
             retrieve Documents; Image + Instruction to retrieve Documents; Instruction + Question to retrieve Documents.
           </p>
 
@@ -610,21 +612,13 @@
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code> 
-        @inproceedings{
-          lin2023finegrained,
-          title={Fine-grained Late-interaction Multi-modal Retrieval for Retrieval Augmented Visual Question Answering},
-          author={Weizhe Lin and Jinghong Chen and Jingbiao Mei and Alexandru Coca and Bill Byrne},
-          booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
-          year={2023},
-          url={https://openreview.net/forum?id=IWWWulAX7g}
-        }
-        
-        @inproceedings{lin-etal-2024-preflmr,
-          title = "{P}re{FLMR}: Scaling Up Fine-Grained Late-Interaction Multi-modal Retrievers",
-          author = "Lin, Weizhe  and
-            Mei, Jingbiao  and
+        @inproceedings{RGCL2024Mei,
+          title = "Improving Hateful Meme Detection through Retrieval-Guided Contrastive Learning",
+          author = "Mei, Jingbiao  and
             Chen, Jinghong  and
-            Byrne, Bill",
+            Lin, Weizhe  and
+            Byrne, Bill  and
+            Tomalin, Marcus",
           editor = "Ku, Lun-Wei  and
             Martins, Andre  and
             Srikumar, Vivek",
@@ -633,9 +627,11 @@
           year = "2024",
           address = "Bangkok, Thailand",
           publisher = "Association for Computational Linguistics",
-          url = "https://aclanthology.org/2024.acl-long.289",
-          pages = "5294--5316",
-          abstract = "Large Multimodal Models (LMMs) excel in natural language and visual understanding but are challenged by exacting tasks such as Knowledge-based Visual Question Answering (KB-VQA) which involve the retrieval of relevant information from document collections to use in shaping answers to questions. We present an extensive training and evaluation framework, M2KR, for KB-VQA. M2KR contains a collection of vision and language tasks which we have incorporated into a single suite of benchmark tasks for training and evaluating general-purpose multi-modal retrievers. We use M2KR to develop PreFLMR, a pre-trained version of the recently developed Fine-grained Late-interaction Multi-modal Retriever (FLMR) approach to KB-VQA, and we report new state-of-the-art results across a range of tasks. We also present investigations into the scaling behaviors of PreFLMR intended to be useful in future developments in general-purpose multi-modal retrievers.",
+          url = "https://aclanthology.org/2024.acl-long.291",
+          doi = "10.18653/v1/2024.acl-long.291",
+          pages = "5333--5347",
+          abstract = "Hateful memes have emerged as a significant concern on the Internet. Detecting hateful memes requires the system to jointly understand the visual and textual modalities. Our investigation reveals that the embedding space of existing CLIP-based systems lacks sensitivity to subtle differences in memes that are vital for correct hatefulness classification. We propose constructing a hatefulness-aware embedding space through retrieval-guided contrastive training. Our approach achieves state-of-the-art performance on the HatefulMemes dataset with an AUROC of 87.0, outperforming much larger fine-tuned large multimodal models. We demonstrate a retrieval-based hateful memes detection system, which is capable of identifying hatefulness based on data unseen in training. This allows developers to update the hateful memes detection system by simply adding new examples without retraining {---} a desirable feature for real services in the constantly evolving landscape of hateful memes on the Internet.",
+      }
       }
 
       </code></pre>
@@ -668,7 +664,7 @@
       span.className = "icon is-large";
 
       var icon = document.createElement("i");
-      icon.className = "fas fas fa-2x" + (sender === "User" ? " fa-user " : sender === "PreFLMR" ? " fa-robot" : "");
+      icon.className = "fas fas fa-2x" + (sender === "User" ? " fa-user " : sender === "RGCL" ? " fa-robot" : "");
 
       var media = document.createElement("div");
       media.className = "media-content";
@@ -729,7 +725,7 @@
             "Using the provided image, obtain documents that address the subsequent question: What is the capital of the country shown in the image?",
             "./static/images/Demo_1_1.jpg"
           ],
-          ["PreFLMR",
+          ["RGCL",
             "In the final phases of the Chinese Civil War, the People's Liberation Army seized control of the city peacefully on 31 January 1949 in the course of the Pingjin Campaign. On 1 October that year, Mao Zedong announced the creation of the People's Republic of China from atop Tian'anmen. He restored the name of the city, as the new capital, to Beijing, a decision that had been reached by the Chinese People's Political Consultative Conference just a few days earlier." +
             "In the 1950s, the city began to expand beyond the old walled city and its surrounding neighborhoods, with heavy industries in the west and residential neighborhoods in the north. Many areas of the Beijing city wall were torn down in the 1960s to make way for the construction of the Beijing Subway and the 2nd Ring Road." +
             "During the Cultural Revolution from 1966 to 1976, the Red Guard movement began in Beijing and the city's government fell victim to one of the first purges. By the autumn of 1966, all city schools were shut down and over a million Red Guards from across the country gathered in Beijing for eight rallies in Tian'anmen Square with Mao. In April 1976, a large public gathering of Beijing residents against the Gang of Four and the Cultural Revolution in Tiananmen Square was forcefully suppressed. In October 1976, the Gang was arrested in Zhongnanhai and the Cultural Revolution came to an end. In December 1978, the Third Plenum of the 11th Party Congress in Beijing under the leadership of Deng Xiaoping reversed the verdicts against victims of the Cultural Revolution and instituted the policy of reform and opening up." +
@@ -744,7 +740,7 @@
             "Using the provided image, obtain documents that address the subsequent question: What is the creature in this image?",
             "./static/images/Demo_1_2.jpg"
           ],
-          ["PreFLMR",
+          ["RGCL",
             "The Ecuadorian hermit crab (Coenobita compressus) also known as the Pacific hermit crab is a species of land hermit crab. It is one of the two land hermit crabs commonly sold in North America as pets, the other being the Caribbean hermit crab (C. clypeatus).​"
           ]
         ]
@@ -756,7 +752,7 @@
         "turns": [
           // ["Description", "Please read the description and answer the question."],
           ["User", "Identify the document that is connected to this image.:", "./static/images/Demo_2_1.jpg"],
-          ["PreFLMR",
+          ["RGCL",
             "title: Peron Peninsula hierarchical section title: Peron Peninsula caption reference description: Satellite image of Shark Bay caption attribution description: Phytoplankton in Bloom. NASA’s Terra satellite captured this image of phytoplankton in bloom in Australia’s Shark Bay on November 6, 2004. content: Peron Peninsula is a long narrow peninsula located in the Shark Bay World Heritage site in Western Australia, at about 25°51' S longitude and 113°30' E latitude. It is some 130 kilometres long, running north-northwesterly, located east of Henri Freycinet Harbour and west of Havre Hamelin and Faure Island. It is the largest of the Shark Bay peninsulas. Significant settlements include Denham and Monkey Mia. An airport is located there. It is the location of former Pastoral leases Peron and Nanga stations. It is the main location of land access to points within the World Heritage site. The northern area contains the Francois Peron National Park. It is surrounded by the Shark Bay Marine Park and its lower southeast part is adjacent to the Hamelin Pool Marine Nature Reserve. The Taillefer Isthmus, the narrowest section of the peninsula, is between Nanga and Goulet Bluff - which has Shell Beach located on the eastern side which lies in the L'Haridon Bight. The northernmost point is Cape Peron which has a namesake further south in the metropolitan Perth coastal area. "
           ]
         ]
@@ -765,7 +761,7 @@
         "description": "Building",
         "turns": [
           ["User", "Identify the document that is connected to this image.:", "./static/images/Demo_2_2.jpg"],
-          ["PreFLMR",
+          ["RGCL",
             "title: Midtown Tower hierarchical section title: Midtown Tower caption reference description: Midtown Tower with Gardenside in the foreground caption attribution description: 日本語: 東京ミッドタウンタワー、東京都港区赤坂9丁目。 content: Midtown Tower is a mixed-use skyscraper in Akasaka, Minato, Tokyo. Completed in 2007, it is the tallest of the six buildings within the Tokyo Midtown complex, at 248.1 meters, and was the tallest office building in Tokyo until 2014.​"
           ]
         ]
@@ -777,7 +773,7 @@
         "turns": [
           // ["Description", "Please read the description and answer the question."],
           ["User", "Retrieve the document that answers this question.: causes of petechial hemorrhage"],
-          ["PreFLMR",
+          ["RGCL",
             "Causes and Symptoms. The causes of petechial hemorrhages are injury to the brain and trauma. This type of multiple petechial hemorrhage is not often visible in imaging techniques such as CT and MRI scans. It is visible in case the injury is very severe, and it generally shows up only after few days. "
           ]
         ]
@@ -786,7 +782,7 @@
         "description": "transformative",
         "turns": [
           ["User", "Retrieve the document that answers this question.: theory of transformational learning definition"],
-          ["PreFLMR",
+          ["RGCL",
             "Transformative learning. Transformative learning theory says that the process of perspective transformation has three dimensions: psychological (changes in understanding of the self), convictional (revision of belief systems), and behavioral (changes in lifestyle).​"
           ]
         ]
